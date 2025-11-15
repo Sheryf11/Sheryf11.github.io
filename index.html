@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- EDIT -->Sheryf —</title>
+  <meta name="description" content="Front-end web designer creating performant, accessible and beautiful UI." />
+
+  <!-- Basic Open Graph -->
+  <meta property="og:title" content="Sheryf — Front-end Web Designer" />
+  <meta property="og:description" content=" build pixel-perfect interfaces and responsive products." />
+
+  <!-- Styles: edit colors/vars below -->
+  <style>
+    :root{
+      --bg:#071122;
+      --panel:#112872;
+      --text:#e8f0fb;
+      --muted:#edf6fc;
+      --accent:#0c9adb;    /* cyan */
+      --accent-2:#1e3e66;  /* blue */
+      --radius:12px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#071122 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 18px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{max-width:var(--container);width:100%}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo-badge{width:50px;height:50px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#022; font-weight:800}
+    nav{display:flex;gap:12px;align-items:center}
+    .nav-link{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    .nav-link:hover{color:var(--text)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#022;padding:8px 12px;border-radius:9px;text-decoration:none;font-weight:700}
+
+    /* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, var(--accent), #1e293b);
+  color: white;
+  padding: 4rem 2rem;
+}
+
+.hero .container {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  color: #071122;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: whitesmoke;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #1478a7;
+  color: var(--bg);
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 1s;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+
+   
+    /* skills */
+    .skills{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:700;color:var(--muted);font-size:13px}
+
+    /* projects grid */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+    @media (max-width:1100px){.projects{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:680px){.projects{grid-template-columns:1fr}}
+    .project{border-radius:10px;overflow:hidden;background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(255,255,255,0.01));cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .project:hover{transform:translateY(-6px)}
+    .project img{display:block;width:100%;height:160px;object-fit:cover}
+    .meta{padding:12px}
+    .meta h4{margin:0 0 6px}
+    .meta p{margin:0;color:var(--muted);font-size:13px}
+
+    /* about + contact */
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:22px}
+    @media (max-width:920px){.two-col{grid-template-columns:1fr}}
+
+    form input,form textarea{width:100%;padding:10px;border-radius:8px;background:#061223;border:1px solid rgba(255,255,255,0.03);color:inherit;margin-bottom:10px}
+    form button{padding:10px 14px;border-radius:10px;border:none;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#022;cursor:pointer}
+
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:32px}
+    <!-- ===== Projects Section ===== -->
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <img src="images/project1.jpg" alt="Project 1">
+      <h3>Portfolio Website</h3>
+      <p>A modern and responsive personal website built using HTML, CSS, and JavaScript.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="images/project2.jpg" alt="Project 2">
+      <h3>Business Landing Page</h3>
+      <p>A sleek landing page design for a local business, optimized for mobile devices.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="images/project3.jpg" alt="Project 3">
+      <h3>UI Design Concept</h3>
+      <p>A creative UI concept designed with Figma and implemented using front-end tools.</p>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+</section>
+
+
+    /* small util */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+
+    /* focus styles for accessibility */
+    a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(125,211,252,0.12);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="logo-badge">IS</div>
+        <div>
+          <div style="font-weight:800">Ismaila sherifideen</div>
+          <div class="muted" style="font-size:13px">Front-end Web Designer</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a class="cta" href="#projects">Work</a>
+        <a class="cta" href="#about">About</a>
+        <a class="cta" href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire me</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+      <section id="hero" class="hero">
+  <div class="container">
+    <h1>Hello, I'm <span class="highlight">Ismaila Sherifideen</span></h1>
+    <h2>Frontend Web Designer & Developer</h2>
+    <p>I design and build modern, responsive websites with clean code and creative layouts.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+</section>
+
+      <div>
+        <h1><!-- EDIT: headline -->Hi — I’m Ismaila sherifideen, I design fast, accessible front-end experiences.</h1>
+        <p class="lead"><!-- EDIT: short pitch -->I build clean, responsive interfaces and component-driven UIs using HTML, CSS, and JavaScript (React when needed). I focus on performance, accessibility and delightful interactions.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
+          <a class="cta" href="#projects">View work</a>
+          <a class="nav-link" href="resume.pdf" target="_blank">Download resume</a>
+        </div>
+
+        <div class="skills" aria-hidden="false" style="margin-top:8px">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">React</span>
+          <span class="skill">Accessibility</span>
+          <span class="skill">Performance</span>
+        </div>
+      </div>
+
+      
+
+    <!-- PROJECTS -->
+    <section id="projects" style="margin-top:18px">
+      <h3 style="margin:0 0 10px">Selected projects</h3>
+      <div class="projects">
+        <!-- Copy this block to add more projects -->
+        <article class="project card" tabindex="0" onclick="openProject(1)" onkeypress="if(event.key==='Enter')openProject(1)">
+          <img src="1661349367583.jpg" alt="My avatar" style="width: 350px; border-image-width: 50px; height:fit-content; border-radius: 5%;">
+          <div class="meta">
+            <h4>Project One</h4>
+            <p class="muted">React SPA — responsive UI, accessibility improvements</p>
+          </div>
+        </article>
+
+        <article class="project card" tabindex="0" onclick="openProject(2)" onkeypress="if(event.key==='Enter')openProject(2)">
+          <img src="a32.jpg" alt="My avatar" style="width: 350px; border-image-width: 50px; height:fit-content border-radius: 5%;">
+          <div class="meta">
+            <h4>Project Two</h4>
+            <p class="muted">Marketing site — semantic HTML, fast load</p>
+          </div>
+        </article>
+
+        <article class="project card" tabindex="0" onclick="openProject(3)" onkeypress="if(event.key==='Enter')openProject(3)">
+          <img src="pinterest.jpg" alt="">
+          <div class="meta">
+            <h4>Project Three</h4>
+            <p class="muted">Component library + Storybook</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align:right;margin-top:10px">
+        <a class="nav-link" href="#more">See all projects</a>
+      </div>
+    </section>
+
+    <!-- ABOUT & CONTACT -->
+    <section class="two-col">
+      <div>
+        <h3 id="about">About me</h3>
+        
+        <div class="card" style="margin-top:12px">
+          <p><!-- EDIT: biography -->I’m a front-end developer/designer with experience building accessible, component-driven interfaces. I collaborate with product teams to create fast UIs and design systems that scale.</p>
+          <p class="muted" style="margin-top:10px">Tools: Figma • HTML • CSS (BEM/Tailwind) • JS • React • Vite • Storybook • Lighthouse</p>
+        </div>
+
+        <h3 style="margin-top:16px">Selected skills</h3>
+        <div class="card" style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;padding:12px">
+          <div style="min-width:120px">
+            <div style="font-weight:700">UI</div>
+            <div class="muted" style="font-size:13px">Design systems, layouts, prototypes</div>
+          </div>
+          <div style="min-width:120px">
+            <div style="font-weight:700">Frontend</div>
+            <div class="muted" style="font-size:13px">HTML, CSS, JS, React</div>
+          </div>
+          <div style="min-width:120px">
+            <div style="font-weight:700">Performance</div>
+            <div class="muted" style="font-size:13px">Optimization & accessibility</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card" id="contact">
+        <h4 style="margin-top:0">Contact</h4>
+        <p class="muted" style="font-size:14px">Email: <strong>Alhajisheryf@gmail.com</strong> <!-- EDIT --> <br/> Location: FCT, Nigeria</p>
+
+        <form id="contactForm" onsubmit="return handleContact(event)" style="margin-top:8px">
+          <label class="muted" for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your name" />
+
+          <label class="muted" for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+
+          <label class="muted" for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Tell me about your project"></textarea>
+
+          <button type="submit">Send message</button>
+        </form>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="muted">© <!-- EDIT -->2025 Ismaila Sherifideen • Front-end Web Designer</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small interaction: project modal placeholder + contact stub
+    function openProject(id){
+      // Simple demo: replace this with a modal or link to project page
+      const titles = {1:'Project One — React SPA',2:'Project Two — Marketing',3:'Project Three — Component lib'};
+      alert(titles[id] + "\\n\\nOpen this project page or show modal with case study.");
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Please fill all fields');
+        return false;
+      }
+      // Demo behavior: show a success toast. Next step: wire to backend/Netlify.
+      alert('Thanks ' + name + '! Message received (demo). I can now show you how to wire this form to Netlify Forms, Formspree, or Google Sheets.');
+      e.target.reset();
+      return false;
+    }
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          ev.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
