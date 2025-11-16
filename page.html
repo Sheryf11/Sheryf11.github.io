@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alex Rivera — Graphic Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+--bg:#0f1724;
+--card:#0b1220;
+--muted:#9aa4b2;
+--accent:#ff6b6b;
+--glass: rgba(255,255,255,0.04);
+--max-w:1200px;
+--radius:16px;
+--gap:24px;
+color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+background: linear-gradient(180deg,#071021 0%, var(--bg) 100%);
+color:#e6eef6;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+line-height:1.45;
+padding:40px 20px;
+display:flex;justify-content:center;
+}
+.container{width:100%;max-width:var(--max-w)}
+
+
+header{
+display:flex;align-items:center;justify-content:space-between;margin-bottom:34px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{
+width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffd66b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b1220;font-family:Playfair Display;font-size:20px;box-shadow:0 6px 20px rgba(0,0,0,0.6)
+}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+nav a.cta{background:linear-gradient(90deg,var(--accent),#ffd66b);color:#0b1220;padding:10px 14px;border-radius:10px}
+
+
+.hero{display:grid;grid-template-columns:1fr 420px;gap:34px;align-items:center;margin-bottom:48px}
+.hero-left h1{font-family:Playfair Display,serif;font-size:44px;margin:0 0 12px}
+.hero-left p.lead{color:var(--muted);margin:0 0 18px}
+.actions{display:flex;gap:12px}
+.btn{padding:12px 16px;border-radius:12px;border:0;background:var(--glass);color:inherit;font-weight:600;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#ffd66b);color:#071021}
+
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:18px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+
+
+.profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+.avatar{width:200px;height:200px;border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.role{color:var(--muted);font-weight:600}
+/* portfolio grid */
+.section-title{font-family:Playfair Display,serif;font-size:20px;margin:12px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project{border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));min-height:180px;display:flex;flex-direction:column}
+.project img{width:100%;height:160px;object-fit:cover}
+.project .meta{padding:12px}
+.muted{color:var(--muted);font-size:14px}
+/* services + contact */
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:24px}
+.service{padding:14px;border-radius:12px;background:var(--glass);margin-bottom:12px}
+
+
+footer{margin-top:48px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+
+/* responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;}
+.grid{grid-template-columns:repeat(2,1fr)}
+.two-col{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+.grid{grid-template-columns:1fr}
+header{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="brand">
+<div class="logo">AR</div>
+<div>
+<div style="font-weight:700">Alex Rivera</div>
+<div class="muted" style="font-size:13px">Graphic Designer • Visual Storyteller</div>
+</div>
+</div>
+<nav>
+<a href="#portfolio">Portfolio</a>
+<a href="#services">Services</a>
+<a href="#contact" class="cta">Contact</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<div class="hero-left">
+<h1>Design.</h1>
+<p class="lead">I craft visual identities, brand systems, and digital artwork for companies and creators. Clean process, striking results.</p>
+<div class="actions">
+<button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Work Together</button>
+<a class="btn" href="#portfolio">View Work</a>
+</div>
+<div style="margin-top:24px;" class="card">
+<div style="display:flex;gap:12px;align-items:center">
+<div style="width:56px;height:56px;border-radius:10px;overflow:hidden"><img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400&auto=format&fit=crop" alt="client" style="width:100%;height:100%;object-fit:cover"></div>
+<div>
+<div style="font-weight:700">Selected clients</div>
+<div class="muted">Studio Nova • Ember Co. • Meridian Labs</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<aside class="card profile">
+  <div class="avatar">
+<img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop"alt="Alex Rivera">
+</div>
+<div style="font-weight:700">Alex Rivera</div>
+<div class="role">Senior Graphic Designer</div>
+<div style="margin-top:12px;width:100%;display:flex;gap:8px;justify-content:center">
+<a class="btn" href="#portfolio">Portfolio</a>
+<a class="btn" href="#contact">Hire me</a>
+</div>
+</aside>
+</section>
+<section id="portfolio">
+<div class="section-title">Recent Work</div>
+<div class="grid">
+<article class="project">
+<img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop" alt="Project 1">
+<div class="meta">
+<div style="font-weight:700">Brand identity — Ember Co.</div>
+<div class="muted">Logo, visual system, packaging</div>
+</div>
+</article>
+
+
+<article class="project">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project 2">
+<div class="meta">
+<div style="font-weight:700">Editorial layout — Meridian</div>
+<div class="muted">Magazine spread & art direction</div>
+</div>
+</article>
+
+
+<article class="project">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project 3">
+<div class="meta">
+<div style="font-weight:700">Packaging — Studio Nova</div>
+<div class="muted">Prototype and dieline-ready files</div>
+</div>
+</article>
+<article class="project">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Project 6">
+<div class="meta">
+<div style="font-weight:700">Website visuals</div>
+<div class="muted">Illustration & UI assets</div>
+</div>
+</article>
+</div>
+</section>
+
+
+<section id="services" style="margin-top:40px">
+<div class="section-title">Services</div>
+<div class="two-col">
+<div>
+<div class="service">
+<div style="font-weight:700">Brand Identity</div>
+<div class="muted">Logo systems, color & typography, brand guidelines.</div>
+</div>
+<div class="service">
+<div style="font-weight:700">Print & Packaging</div>
+<div class="muted">Packaging, editorial, posters, and print-ready production files.</div>
+</div>
+<div class="service">
+<div style="font-weight:700">Digital Design</div>
+<div class="muted">Website visuals, social campaigns, motion thumbnails.</div>
+</div>
+</div>
+<article class="project">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Project 6">
+<div class="meta">
+<div style="font-weight:700">Website visuals</div>
+<div class="muted">Illustration & UI assets</div>
+</div>
+</article>
+</div>
+</section>
+
+
+<section id="services" style="margin-top:40px">
+<div class="section-title">Services</div>
+<div class="two-col">
+<div>
+<div class="service">
+<div style="font-weight:700">Brand Identity</div>
+<div class="muted">Logo systems, color & typography, brand guidelines.</div>
+</div>
+<div class="service">
+<div style="font-weight:700">Print & Packaging</div>
+<div class="muted">Packaging, editorial, posters, and print-ready production files.</div>
+</div>
+<div class="service">
+<div style="font-weight:700">Digital Design</div>
+<div class="muted">Website visuals, social campaigns, motion thumbnails.</div>
+</div>
+</div>
+<aside class="card" id="contact">
+<div style="font-weight:700">Get in touch</div>
+<p class="muted" style="margin-top:6px">Available for freelance & full-time work. Based in Lagos (UTC+1).</p>
+<form style="margin-top:12px;display:flex;flex-direction:column;gap:10px" onsubmit="event.preventDefault(); alert('Thanks! Your message would be sent in a real site. Replace this handler with backend or mailto.')">
+<input required placeholder="Your name" style="padding:12px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+<input required type="email" placeholder="Email" style="padding:12px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+<textarea required placeholder="Message" rows="4" style="padding:12px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:inherit"></textarea>
+<button class="btn primary" type="submit">Send message</button>
+</form>
+
+
+<div style="margin-top:12px;font-size:13px" class="muted">Or email: <a href="mailto:alex@designs.example" style="color:inherit;text-decoration:underline">alex@designs.example</a></div>
+</aside>
+</div>
+</section>
+
+
+</main>
+<footer>
+<div>© <span id="year"></span> Alex Rivera — Graphic Designer</div>
+<div class="muted">Built with care • Available for hire</div>
+</footer>
+</div>
+
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
