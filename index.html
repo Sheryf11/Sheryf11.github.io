@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sheryf — Portfolio</title>
+
+  <style>
+    /* -----------------------------------------------------
+       GLOBAL
+    ----------------------------------------------------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html,body { height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+      background:#071122;
+      color:#e8f0fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 18px;
+      display:flex;
+      justify-content:center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .wrap{ max-width:1100px; width:100%; position: relative; z-index: 10; }
+
+    :root{
+      --bg:#071122;
+      --panel:#112872;
+      --text:#e8f0fb;
+      --muted:#edf6fc;
+      --accent:#0c9adb;
+      --accent-2:#1e3e66;
+      --radius:12px;
+    }
+
+    /* -----------------------------------------------------
+       WATER BACKGROUND — FULL CUSTOM LIQUID EFFECT
+    ----------------------------------------------------- */
+    #water-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+
+      /* Base gradient water color */
+      background: radial-gradient(circle at 30% 40%, #0c9adb33, transparent 70%),
+                  radial-gradient(circle at 70% 80%, #1e3e6633, transparent 70%),
+                  linear-gradient(180deg, #071122, #0a1124);
+      filter: brightness(1.1);
+    }
+
+    /* Light shimmer passing like water reflection */
+    #water-bg::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'>\
+<filter id='w'>\
+<feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='8' />\
+<feDisplacementMap in='SourceGraphic' scale='20' />\
+</filter>\
+<rect width='600' height='600' filter='url(#w)'/>\
+</svg>") repeat;
+      opacity:.22;
+      mix-blend-mode:screen;
+      animation: shimmer 18s infinite linear;
+    }
+
+    /* Soft wave layer */
+    #water-bg::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'>\
+<filter id='f'>\
+<feTurbulence type='turbulence' baseFrequency='0.008' numOctaves='3' seed='5'/>\
+<feDisplacementMap scale='30'/>\
+</filter>\
+<rect width='600' height='600' filter='url(#f)'/>\
+</svg>") repeat;
+      opacity:.13;
+      animation: waves 26s ease-in-out infinite alternate;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-30%, -20%); }
+    }
+
+    @keyframes waves {
+      0% { transform: scale(1) translateY(-10px); }
+      50% { transform: scale(1.05) translateY(10px); }
+      100% { transform: scale(1) translateY(-10px); }
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap; position: relative; }
+    .logo{ display:flex; gap:12px; align-items:center }
+    .logo-badge{ width:50px; height:50px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#022; font-weight:800; }
+    nav{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .cta{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#022; padding:8px 12px; border-radius:9px; text-decoration:none; font-weight:700; }
+
+    /* -----------------------------------------------------
+       HERO
+    ----------------------------------------------------- */
+    .hero {
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      min-height: 70vh; background: linear-gradient(135deg,var(--accent),#1e293b);
+      color: white; padding: 3rem 1.5rem; border-radius:18px;
+    }
+    .hero .container { max-width:700px; }
+    .hero h1 { font-size:48px; color:#071122; margin:0 0 .5rem; line-height:1.08; }
+    .hero h2 { font-size:1.4rem; color:white; margin:0 0 1rem; }
+    .btn { background-color:#1478a7; color:var(--bg); padding:.8rem 1.6rem; border-radius:30px; text-decoration:none; font-weight:600; transition:.25s; display:inline-block; }
+    .btn:hover { background-color:var(--accent); color:#fff; transform:translateY(-3px); }
+
+    /* -----------------------------------------------------
+       SKILLS
+    ----------------------------------------------------- */
+    .skills{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .skill{ padding:6px 10px; background: rgba(255,255,255,0.03); border-radius:999px; font-weight:700; color:var(--muted); font-size:13px; }
+
+    /* -----------------------------------------------------
+       PROJECTS
+    ----------------------------------------------------- */
+    .projects{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; margin-top:16px; }
+    @media (max-width:1100px){ .projects{ grid-template-columns:repeat(2,1fr) } }
+    @media (max-width:680px){ .projects{ grid-template-columns:1fr } }
+
+    .project{ border-radius:10px; overflow:hidden; background:rgba(255,255,255,0.03); cursor:pointer; transition: transform .18s ease, box-shadow .18s ease; }
+    .project:hover{ transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    .thumb {
+      width:100%;
+      height: 200px;
+      object-fit: cover;
+      display:block;
+    }
+
+    .meta{ padding:12px; }
+    .meta h4{ margin:0 0 6px; color:var(--text); }
+    .meta p{ margin:0; color:var(--muted); font-size:13px; }
+
+    /* -----------------------------------------------------
+       ABOUT / CONTACT
+    ----------------------------------------------------- */
+    .two-col{ display:grid; grid-template-columns:1fr 360px; gap:18px; margin-top:22px; }
+    @media (max-width:920px){ .two-col{ grid-template-columns:1fr } }
+
+    .card{ background: rgba(255,255,255,0.02); padding:14px; border-radius:12px; }
+
+    form input, form textarea{
+      width:100%; padding:10px; border-radius:8px;
+      background:#061223; border:1px solid rgba(255,255,255,0.03);
+      color:inherit; margin-bottom:10px;
+    }
+
+    form button{
+      padding:10px 14px; border-radius:10px; border:none;
+      font-weight:700;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#022; cursor:pointer;
+    }
+
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:32px; }
+
+    /* -----------------------------------------------------
+       Back to Top
+    ----------------------------------------------------- */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;
+      border: none;
+      font-size: 22px;
+      display:flex; justify-content:center; align-items:center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      transition: opacity .3s ease, transform .3s ease;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .back-to-top.show { opacity:1; pointer-events:auto; }
+
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- WATER BACKGROUND LAYER -->
+  <div id="water-bg"></div>
+
+  <div class="wrap">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <div class="logo-badge">IS</div>
+        <div>
+          <div style="font-weight:800">Ismaila Sherifideen</div>
+          <div class="muted" style="font-size:13px">Front-end Web Designer</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="cta" href="#about">About</a>
+        <a class="cta" href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire me</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1>Hello, I'm <span style="color:var(--accent);font-weight:800">Ismaila Sherifideen</span></h1>
+        <h2>Frontend Web Designer & Developer</h2>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <div style="margin-top:20px">
+      <h1 style="font-size:20px;margin-bottom:8px">Hi — I design fast, accessible front-end experiences.</h1>
+      <p class="lead" style="margin-top:0;margin-bottom:12px">I build clean, responsive interfaces using semantic HTML, modern CSS, and JavaScript (React when needed). I focus on performance, accessibility and delightful interactions.</p>
+
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">React</span>
+        <span class="skill">Accessibility</span>
+        <span class="skill">Performance</span>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="margin-top:18px">
+      <h3>Selected projects</h3>
+
+      <div class="projects">
+        <article class="project card" onclick="openProject(1)">
+          <img class="thumb" src="charly.jpg" alt="">
+          <div class="meta">
+            <h4>Project One</h4>
+            <p class="muted">React SPA</p>
+          </div>
+        </article>
+
+        <article class="project card" onclick="openProject(2)">
+          <img class="thumb" src="a32.jpg" alt="">
+          <div class="meta">
+            <h4>Project Two</h4>
+            <p class="muted">Marketing site</p>
+          </div>
+        </article>
+
+        <article class="project card" onclick="openProject(3)">
+          <img class="thumb" src="pinterest.jpg" alt="">
+          <div class="meta">
+            <h4>Project Three</h4>
+            <p class="muted">Component library</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT AND CONTACT -->
+    <section class="two-col">
+      <div>
+        <h3 id="about">About me</h3>
+        <div class="card" style="margin-top:12px">
+          <p>I focus on building accessible, scalable and performant interfaces using modern UI engineering practices.</p>
+        </div>
+
+        <h3 style="margin-top:16px">Skills</h3>
+        <div class="card" style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;">
+          <div><b>UI</b><br><span class="muted">Design systems, prototypes</span></div>
+          <div><b>Frontend</b><br><span class="muted">HTML, CSS, JS, React</span></div>
+          <div><b>Performance</b><br><span class="muted">Accessibility & speed</span></div>
+        </div>
+      </div>
+
+      <aside class="card" id="contact">
+        <h4>Contact</h4>
+        <p class="muted">Email: <b>Alhajisheryf@gmail.com</b><br>FCT, Nigeria</p>
+
+        <form id="contactForm" onsubmit="return handleContact(event)">
+          <label class="muted">Name</label>
+          <input required>
+
+          <label class="muted">Email</label>
+          <input type="email" required>
+
+          <label class="muted">Message</label>
+          <textarea rows="4" required></textarea>
+
+          <button>Send message</button>
+        </form>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="muted">© 2025 Ismaila Sherifideen</div>
+    </footer>
+  </div>
+
+  <!-- Back to top -->
+  <a href="#top" class="back-to-top" id="backToTop">↑</a>
+
+  <script>
+    // Back-to-top logic
+    const back = document.getElementById("backToTop");
+    window.addEventListener("scroll",()=>{
+      if(window.scrollY>300) back.classList.add("show");
+      else back.classList.remove("show");
+    });
+
+    back.addEventListener("click",e=>{
+      e.preventDefault();
+      scrollTo({top:0,behavior:"smooth"});
+    });
+
+    // Project placeholder
+    function openProject(id){
+      alert("Open project: "+id);
+    }
+  </script>
+
+</body>
+</html>
